@@ -28,8 +28,9 @@ Tühistusnimekirjade kokkupanek ja uuendamine Linuxis:
 Tühistusnimekirjade haldamiseks vaata ka 
 http://code.google.com/p/esteid/wiki/AuthConfApache#Apache_seadistamine
 
+Mobiil-ID abil isikutuvastuse koodinäide:
 
-
+mobiil_id : kataloog, kuhu on lahti pakitud näitetarkvara lehelt http://demo.digidoc.ee/auth_sample/ 
 
 
 
