@@ -1,0 +1,10 @@
+Instructions for building the SWIG PHP module with GCC:
+
+* ./build.sh
+
+Move digidoc.so to the PHP extensions directory (consult the PHP documentation
+to find out where it is on your platform) and add "extension=digidoc.so" to
+php.ini, or append it to an existing "extension" option. To use the module,
+include the SWIG generated digidoc.php into your PHP code. This isn't strictly
+necessary, but it gives a separate namespace to the added functions to better
+differentiate them.
