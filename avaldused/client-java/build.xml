@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="eid-client" default="dist">
+	<description>
+		Buildfile for the stand-alone client of the EstEID claim handling demo.
+	</description>
+
+	<property name="build" location="build" />
+	<property name="jar" location="client.jar" />
+
+	<!-- Customize me! -->
+	<path id="classpath">
+		<!-- Needed for compiling and execution -->
+		<pathelement location="jdigidoc/jdigidoc-3.8.1-709.jar" />
+		<pathelement location="jdigidoc/lib/bcprov-jdk15on-148.jar" />
+
+		<!-- Needed for execution only -->
+		<pathelement location="jdigidoc/lib/commons-codec-1.6.jar" />
+		<pathelement location="jdigidoc/lib/commons-compress-1.3.jar" />
+		<pathelement location="jdigidoc/lib/iaikPkcs11Wrapper.jar" />
+		<pathelement location="jdigidoc/lib/jakarta-log4j-1.2.6.jar" />
+		<pathelement location="certs/esteidtestcerts.jar" />
+	</path>
+
+	<!-- Requires Apache Ant 1.7 -->
+	<manifestclasspath property="manifestclasspath" jarfile="${jar}">
+		<classpath refid="classpath" />
+	</manifestclasspath>
+
+	<target name="compile" description="Compile the client">
+		<mkdir dir="${build}" />
+		<javac srcdir="."
+			destdir="${build}"
+			source="1.7"
+			target="1.7"
+			includeantruntime="false"
+			classpathref="classpath" />
+	</target>
+
+	<target name="dist" depends="compile"
+			description="Create a JAR from the compiled classes.">
+		<jar destfile="${jar}" basedir="${build}">
+			<manifest>
+				<attribute name="Main-Class" value="ee.cyber.eid.EidClient" />
+				<attribute name="Class-Path" value="${manifestclasspath}" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="clean" description="Deletes the build directory">
+		<delete dir="${build}" />
+		<delete file ="${jar}" />
+	</target>
+</project>
