@@ -11,8 +11,8 @@
     </header>
     <div class="msg">
         <ul>
-            <li><a href="webform/">Claim demo - signing with ID-card</a></li>
-            <li><a href="webform-mobile/">Claim demo - signing with Mobile-ID</a></li>
+            <li><a href="<?='https://'. $_SERVER['SERVER_NAME'] .'/eid/avaldused/webform/'?>">Claim demo - signing with ID-card</a></li>
+            <li><a href="<?='https://'. $_SERVER['SERVER_NAME'] .'/eid/avaldused/webform-mobile/'?>">Claim demo - signing with Mobile-ID</a></li>
         </ul>
     </div>
 </body>

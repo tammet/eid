@@ -6,19 +6,10 @@
 
 	<property name="build" location="build" />
 	<property name="jar" location="client.jar" />
-
-	<!-- Customize me! -->
+	
+	<!-- All needed jars should reside in lib directory! -->
 	<path id="classpath">
-		<!-- Needed for compiling and execution -->
-		<pathelement location="jdigidoc/jdigidoc-3.8.1-709.jar" />
-		<pathelement location="jdigidoc/lib/bcprov-jdk15on-148.jar" />
-
-		<!-- Needed for execution only -->
-		<pathelement location="jdigidoc/lib/commons-codec-1.6.jar" />
-		<pathelement location="jdigidoc/lib/commons-compress-1.3.jar" />
-		<pathelement location="jdigidoc/lib/iaikPkcs11Wrapper.jar" />
-		<pathelement location="jdigidoc/lib/jakarta-log4j-1.2.6.jar" />
-		<pathelement location="certs/esteidtestcerts.jar" />
+		<fileset dir="lib" includes="*.jar" />
 	</path>
 
 	<!-- Requires Apache Ant 1.7 -->
@@ -44,8 +35,9 @@
 				<attribute name="Class-Path" value="${manifestclasspath}" />
 			</manifest>
 		</jar>
+		
 	</target>
-
+	
 	<target name="clean" description="Deletes the build directory">
 		<delete dir="${build}" />
 		<delete file ="${jar}" />

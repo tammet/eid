@@ -26,7 +26,7 @@
 
                 <p>
                 <label for="phone">Phone number: </label>
-                <input id="phone" name="phone" type="text" required>
+                <input id="phone" name="phone" type="text" required> (372...)
                 </p>
 
                 <p>

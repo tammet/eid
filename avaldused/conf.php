@@ -1,5 +1,8 @@
 <?php
 
+/* Set this value to 0, if you do not hawe eID card in server (for signing claim responses) */
+define('DD_SIGN_RESPONSE', 0);
+
 /* Included PEAR extensions. */
 define('PEAR_PATH', dirname(__FILE__).'/inc/'); 
 require_once PEAR_PATH . 'SOAP/Client.php';
@@ -22,6 +25,6 @@ define('DD_TIMEOUT', '9000');
 define('DD_WSDL_FILE', dirname(__FILE__) . '/wsdl.class.php');
 
 /* Location of the claim handling service. */
-define('DD_RESPONSE_SERVER', 'http://'. $_SERVER['SERVER_NAME'] .'/avaldused/submit.php');
+define('DD_RESPONSE_SERVER', 'http://'. $_SERVER['SERVER_NAME'] .'/eid/avaldused/submit.php');
 
 ?>

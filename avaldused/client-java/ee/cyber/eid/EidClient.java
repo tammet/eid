@@ -24,7 +24,7 @@ public class EidClient {
     private static final String DEFAULT_CONF = "jdigidoc.cfg";
 
     /** The default location of our claim handling service. */
-    private static final String DEFAULT_URL = "https://localhost/eid/submit.php";
+    private static final String DEFAULT_URL = "https://localhost/eid/avaldused/submit.php";
 
     /** The default token index to use, i.e. 0 means we use the first card
      * reader we find. */
@@ -109,7 +109,11 @@ public class EidClient {
         System.out.println("Decrypting and processing the response...");
         Response resp = new Response(encd);
         resp.decrypt(cn, TOKEN_INDEX);
-        resp.verify();
+        try {
+            resp.verify();
+        } catch (Exception e) {
+            System.err.println("Response signature verification failed: " + e.toString());
+        }
         String responseContent = resp.getContent();
         if (responseContent == null) {
             System.err.println("The response is empty!");

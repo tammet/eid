@@ -13,6 +13,7 @@
  * The response is in DIGIDOC-XML format, since the C library does not support
  * BDOC.
  */
+require_once "conf.php";
 require_once "digidoc.php";
 require_once "DigiDoc.class.php";
 
@@ -182,7 +183,7 @@ function sign_response() {
     $sdoc = digidoc::new_signature_container();
     if ($sdoc != NULL) {
         $err = digidoc::add_data_file($sdoc, get_response_prefix(), "text/plain");
-        if ($err == digidoc::ERR_OK) {
+        if ($err == digidoc::ERR_OK && DD_SIGN_RESPONSE) {
             /* PIN2 can either be given here as a string or added to the
              * libdigidoc configuration file as the value of AUTOSIGN_PIN. */
             $err = digidoc::sign_container($sdoc, NULL, "role", "city",
