@@ -1,0 +1,6 @@
+﻿Everything contained in the Smart Card folder was written by Olivier Rouit and originates from
+http://www.codeproject.com/Articles/16653/A-Smart-Card-Framework-for-NET. It is released under
+The Code Project Open License 1.02 (http://www.codeproject.com/info/cpol10.aspx).
+
+Some changes were made to CardNative.cs by Tiit Pikma: exceptions return an error message
+instead of just an error code.
